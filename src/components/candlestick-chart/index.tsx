@@ -20,7 +20,7 @@ const CandlestickChart: React.FC = () => {
 
   useEffect(() => {
     dispatch(fetchCandles(interval));
-  }, [dispatch, interval]);
+  }, []);
 
   const handleIntervalChange = (value: TimeIntervals) => {
     dispatch(fetchCandles(value));
