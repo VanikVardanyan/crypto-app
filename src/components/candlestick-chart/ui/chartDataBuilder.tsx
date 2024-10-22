@@ -1,4 +1,4 @@
-import { ICandle } from "../../../store/slice/candlestickSlice/types";
+import { ICandle } from "@/store/slice/candlestickSlice/types";
 
 export const buildChartData = (candles: ICandle[]) => {
   return {
