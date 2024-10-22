@@ -14,3 +14,15 @@ export const buildChartData = (candles: ICandle[]) => {
     ],
   };
 };
+
+export const optionsChart = {
+  responsive: true,
+  maintainAspectRatio: false,
+  scales: {
+    x: {
+      ticks: {
+        maxTicksLimit: 5,
+      },
+    },
+  },
+};

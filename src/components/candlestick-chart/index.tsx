@@ -8,7 +8,7 @@ import { getCandlestickSelector } from "@/store/selectors";
 import { TimeIntervals } from "@/store/slice/candlestickSlice/types";
 import { RequestStatus } from "@/store/types";
 import { Select, Skeleton } from "antd";
-import { buildChartData } from "./ui/chartDataBuilder";
+import { buildChartData, optionsChart } from "./ui/chartDataBuilder";
 import "./styles.css";
 
 Chart.register(...registerables);
@@ -38,7 +38,13 @@ const CandlestickChart: React.FC = () => {
         <Option value={TimeIntervals.OneDay}>1 Day</Option>
       </Select>
 
-      {status === RequestStatus.LOADING ? <Skeleton active paragraph={{ rows: 6 }} /> : <Line data={chartData} />}
+      {status === RequestStatus.LOADING ? (
+        <Skeleton active paragraph={{ rows: 6 }} />
+      ) : (
+        <div className="lineWrapper">
+          <Line data={chartData} options={optionsChart} width={700} />
+        </div>
+      )}
     </div>
   );
 };
